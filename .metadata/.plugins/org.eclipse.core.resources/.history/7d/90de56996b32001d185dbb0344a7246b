@@ -1,0 +1,10 @@
+
+public class WrapperDemo {
+
+	public static void main(String[] args) {
+			Integer i1=new Integer("88");
+			int ans=i1.intValue();
+			System.out.println(ans);
+	}
+
+}

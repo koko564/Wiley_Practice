@@ -1,0 +1,24 @@
+
+public class SingletonDemo {
+	//Single object creation of class SingletonDemo
+		private static SingletonDemo instance=new SingletonDemo();
+		
+	//private constructor to prevent instantiation
+		private SingletonDemo() {}
+		
+	//fetch the only object availabe
+		public static SingletonDemo fetchInstance()
+		{
+			return instance;
+		}
+		public void display()
+		{
+			System.out.println("Demo Succesfull!");
+		}		
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SingletonDemo obj=SingletonDemo.fetchInstance();
+		obj.display();
+	}
+
+}

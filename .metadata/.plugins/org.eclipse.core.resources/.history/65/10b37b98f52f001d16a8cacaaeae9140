@@ -1,0 +1,17 @@
+
+public class Triangle {
+	private double base,height, area;
+	public Triangle(double base) {
+		this.base=base;
+		this.height=this.base*3;
+	}
+	public double calArea()
+	{
+		area=0.5*base*height;
+		return area;
+	}
+
+
+	
+
+}

@@ -1,0 +1,77 @@
+
+public class BankAcc {
+	String accountId, holderName, accountType;
+	double openBal, currentBal;
+	static double totalBal;
+	static {
+		
+		totalBal=0;
+	}
+	public BankAcc(String accountId,String holderName,double openBal, String accountType) {
+		AccountType type1=AccountType.SAVINGS;
+		AccountType type2=AccountType.CURRENT;
+		this.accountType=accountType;
+		this.accountId=accountId;
+		this.holderName=holderName;
+		if((accountType.equals("SAVINGS") && openBal>=type1.minBal()) || (accountType.equals("CURRENT") && openBal>=type2.minBal()) ) {
+			this.openBal=openBal;
+			this.currentBal=openBal;
+			totalBal=totalBal+currentBal;
+		}
+		else
+			System.out.println("Account not created due to insufficient Opening Balance for "+this.holderName+"!"+ '\n');
+	}
+	public void depositAmount(double amount) {
+		if(openBal>0) {
+		System.out.println("Amount deposited!");
+		currentBal=currentBal+amount;
+		totalBal=totalBal+amount;
+		displayDetails();
+		}
+	}
+	public void withdrawAmount(double amount) {
+		if(openBal>0) {
+		if(amount<currentBal) {
+			System.out.println("Amount withdrawn!");
+			currentBal=currentBal-amount;
+			totalBal=totalBal-amount;
+		}
+		
+		else
+			System.out.println("Invalid withdraw amount!");
+		displayDetails();
+		}
+		
+	}
+	public void getCurrentBalance()
+	{
+		System.out.println(currentBal);
+	}
+	public static void displayTotalBalance()
+	{
+		System.out.println("Total Cash in Bank : "+totalBal);
+	}
+	
+	public void displayDetails() {
+		System.out.println("ID:"+accountId);
+		System.out.println("Name:"+holderName);
+		System.out.println("Opening Balance:"+openBal);
+		System.out.println("Current Balance:"+currentBal);
+		System.out.println();
+		
+	}
+	
+	public static void main(String[] args) {
+		BankAcc obj1=new BankAcc("ABC123","Rakesh Sen",0,"SAVINGS");
+		BankAcc obj2=new BankAcc("DEF123","Priya Ray",8000,"CURRENT");
+		BankAcc obj3=new BankAcc("GHI123","Pratik Das",10000,"SAVINGS");
+		
+		obj1.depositAmount(3500);
+		obj2.withdrawAmount(80000);
+		obj3.depositAmount(15000);
+		BankAcc.displayTotalBalance();
+		
+		
+	}
+
+}

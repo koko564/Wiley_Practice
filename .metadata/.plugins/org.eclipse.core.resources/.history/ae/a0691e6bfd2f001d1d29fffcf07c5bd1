@@ -1,0 +1,7 @@
+
+public class CoffeeDemo {
+	public static void main(String[] args) {
+		Coffee coffee=Coffee.Gold;
+		System.out.println(coffee);
+	}
+}

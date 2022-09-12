@@ -1,0 +1,10 @@
+
+public enum Coffee {
+	NESCAFE(5), LATTE(7), CAPUCCINO(10), ESPRESSO(9) ;
+	private int coffeebeans;
+	private double cost;
+	private Coffee(int coffeebeans){
+		this.coffeebeans=coffeebeans;
+	}
+}
+

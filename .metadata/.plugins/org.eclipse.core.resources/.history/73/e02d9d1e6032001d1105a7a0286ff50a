@@ -1,0 +1,86 @@
+
+public class BankAccount {
+	String accountId, holderName, accType;
+	double openBal, currentBal;
+	static double totalBal;
+	static {
+		
+		totalBal=0;
+	}
+	public BankAccount(String accountId,String holderName,double openBal, String accType) throws Throwable {
+		this.holderName=holderName;
+		this.accType=accType;
+		AccountType type1=AccountType.SAVINGS;
+		AccountType type2=AccountType.CURRENT;
+		if((accType.equals("SAVINGS") && openBal>=type1.minimumBal()) || (accType.equals("CURRENT") && openBal>=type2.minimumBal())){
+		this.accountId=accountId;
+		this.openBal=openBal;
+		this.currentBal=openBal;
+		totalBal=totalBal+currentBal;
+		System.out.println("Account Created for "+holderName+" under Id "+accountId+". \n");
+		
+	}
+		else {
+			try {
+			this.finalize();
+			}
+			catch (Throwable t){
+				
+			System.out.println("Account Not created for "+holderName+" Due to insufficient Opening Balance! \n");
+			}
+	}
+	}
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
+	public void depositAmount(double amount) {
+		
+		System.out.println("Amount deposited!");
+		currentBal=currentBal+amount;
+		totalBal=totalBal+amount;
+		displayDetails();
+		
+	}
+	public void withdrawAmount(double amount) {
+		
+		if(amount<currentBal) {
+			System.out.println("Amount withdrawn!");
+			currentBal=currentBal-amount;
+			totalBal=totalBal-amount;
+		}
+		
+		else
+			System.out.println("Invalid withdraw amount!");
+		displayDetails();
+	}
+	
+	public static void displayTotalBalance()
+	{
+		System.out.println("Total Cash in Bank : "+totalBal);
+	}
+	
+	public void displayDetails() {
+		System.out.println("ID:"+accountId);
+		System.out.println("Name:"+holderName);
+		System.out.println("Opening Balance:"+openBal);
+		System.out.println("Current Balance:"+currentBal);
+		System.out.println();
+		
+	}
+	
+	public static void main(String[] args) {
+		BankAccount obj1=new BankAccount("ABC123","Rakesh Sen",900,"SAVINGS");
+		BankAccount obj2=new BankAccount("DEF123","Priya Ray",8000,"CURRENT");
+		BankAccount obj3=new BankAccount("GHI123","Pratik Das",800,"CURRENT");
+		BankAccount obj4=new BankAccount("JKL123","Riya Das",6500,"SAVINGS");
+		obj1.depositAmount(1200);
+		obj2.withdrawAmount(80000);
+		obj4.depositAmount(3500);
+		BankAccount.displayTotalBalance();
+		
+		
+	}
+
+}
