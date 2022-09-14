@@ -1,7 +1,0 @@
-INDEX VERSION 1.131+D:\Wiley-Practice\.metadata\.plugins\org.eclipse.jdt.core
-3119222176.index
-1766460760.index
-663689219.index
-2255988920.index
-500360407.index
-3471621430.index
