@@ -17,12 +17,12 @@ public class Employee{
 		return Objects.hash(empId,empName);
 	}
 
-	public double getEmpBasicSalary() {
-		return empBasicSalary;
+	public double getEmpGrossSalary() {
+		return empGrossSalary;
 	}
 
-	public void setEmpBasicSalary(double empBasicSalary) {
-		this.empBasicSalary = empBasicSalary;
+	public void setEmpGrossSalary(double empGrossSalary) {
+		this.empGrossSalary = empGrossSalary;
 	}
 
 	public String getEmpDept() {

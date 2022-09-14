@@ -31,7 +31,7 @@ public class EmpTest {
 	public static void SortEmployee(Employee empArray[]) {
 		Arrays.sort(empArray, new Comparator<Employee>() {
 			public int compare(Employee e1,Employee e2) {
-				if(e1.getEmpBasicSalary()<e2.getEmpBasicSalary())
+				if(e1.getEmpGrossSalary()<e2.getEmpGrossSalary())
 					return -1;
 				return 1;
 			}
