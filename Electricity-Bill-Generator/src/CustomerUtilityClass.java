@@ -38,12 +38,13 @@ public class CustomerUtilityClass {
 
 	}
 
-	private static void displayAllCustomerSortedByBills(ArrayList<Customer> customerList) {
+	private static List<Customer> displayAllCustomerSortedByBills(ArrayList<Customer> customerList) {
 		Collections.sort(customerList, (c1, c2) -> ((Double) c2.getTotalBill()).compareTo(c1.getTotalBill()));
 
 		for (Customer c : customerList) {
 			System.out.println(c);
 		}
+		return customerList;
 	}
 
 	public static void serializeAllCustomers(List<Customer> customerList) {
